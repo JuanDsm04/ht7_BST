@@ -93,17 +93,14 @@ public class Controller {
      * @return Palabra traducida
      */
     private static String translateWord(String word, BST<Association<String, String>> tree) {
-        Association<String, String> association = tree.search(new Association<>(word, ""));
-
-        if (association != null) {
-            String translatedWord = association.getValue();
-            
+        String translatedWord = tree.search(new Association<>(word, ""));
+        
+        if (translatedWord != null) {
             if (!translatedWord.isEmpty()) {
                 translatedWord = translatedWord.substring(0, translatedWord.length() - 1);
             }
-
             return translatedWord;
-
+            
         } else {
             return "*" + word + "*";
         }

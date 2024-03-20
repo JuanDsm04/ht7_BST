@@ -76,32 +76,31 @@ class BST<E extends Comparable<E>> {
         }
     }
 
-     /**
+    /**
      * @description Método que busca un elemento en el árbol
      * @param item Elemento a buscar
-     * @return Elemento buscado
+     * @return Valor correspondiente a la clave buscada, o null si no se encuentra
      */
-    public E search(E item) {
+    public String search(E item) {
         return searchRec(root, item);
     }
-    
+
     /**
      * @description Método que busca un elemento en el árbol
      * @param root Raíz del árbol
      * @param item Elemento a buscar
-     * @return Elemento buscado
+     * @return Valor correspondiente a la clave buscada, o null si no se encuentra
      */
-    private E searchRec(TreeNode root, E item) {
+    private String searchRec(TreeNode root, E item) {
         if (root == null) {
             return null;
         }
 
-        if (item.compareTo(root.data)== 0) {
-            return root.data;
-
-        } else if (item.compareTo(root.data) < 0){
+        if (item.compareTo(root.data) == 0) {
+            // Devolver el valor correspondiente a la clave buscada
+            return ((Association<String, String>) root.data).getValue();
+        } else if (item.compareTo(root.data) < 0) {
             return searchRec(root.left, item);
-
         } else {
             return searchRec(root.right, item);
         }
