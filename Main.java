@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Controller controller = new Controller();
         boolean repetir = true;
         
         while (repetir) {
@@ -20,11 +21,11 @@ public class Main{
             String opcion = scanner.nextLine();
             switch (opcion) {
                 case "1":
-                    //controller.mostrarDiccionario();
+                    controller.mostrarDiccionario();
                     break;
 
                 case "2":
-                    //controller.traducir();
+                    controller.traducir();
                     break;
 
                 case "3":

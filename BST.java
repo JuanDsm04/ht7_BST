@@ -75,4 +75,43 @@ class BST<E extends Comparable<E>> {
             inorderRec(node.right);
         }
     }
+
+     /**
+     * @description Método que busca un elemento en el árbol
+     * @param item Elemento a buscar
+     * @return Elemento buscado
+     */
+    public E search(E item) {
+        return searchRec(root, item);
+    }
+    
+    /**
+     * @description Método que busca un elemento en el árbol
+     * @param root Raíz del árbol
+     * @param item Elemento a buscar
+     * @return Elemento buscado
+     */
+    private E searchRec(TreeNode root, E item) {
+        if (root == null) {
+            return null;
+        }
+
+        if (item.compareTo(root.data)== 0) {
+            return root.data;
+
+        } else if (item.compareTo(root.data) < 0){
+            return searchRec(root.left, item);
+
+        } else {
+            return searchRec(root.right, item);
+        }
+    }
+
+    /**
+     * @description Método que elimina un elemento del árbol
+     * @param item Elemento a eliminar
+     */
+    public TreeNode getRoot() {
+        return root;
+    }
 }
